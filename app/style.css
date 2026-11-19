@@ -1,7 +1,97 @@
-body { font-family: Arial, sans-serif; margin: 24px; color: #222; }
-header { display: flex; justify-content: space-between; align-items: baseline; }
-.controls { display: flex; gap: 16px; margin: 12px 0; align-items: center; }
-.import input { font-size: 12px; }
-table { border-collapse: collapse; width: 100%; }
-th, td { border-bottom: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; white-space: pre-line; }
-th { background: #f2f2f2; }
+/* Leonida Legend: a dark Vice City neon look of our own. No images, no web fonts. */
+:root {
+  --bg: #0d0a1a;
+  --panel: #171228;
+  --panel-2: #1e1836;
+  --line: #2e2452;
+  --ink: #f2eefc;
+  --muted: #b3a8d6;
+  --pink: #ff2e88;
+  --cyan: #22d3ee;
+  --gold: #f5c542;
+  --silver: #c9d1d9;
+  --bronze: #d08a4e;
+  --green: #3ddc84;
+  --red: #ff5c5c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  line-height: 1.5;
+}
+.hero {
+  padding: 36px 24px 24px;
+  background: linear-gradient(135deg, #2b1155 0%, #0d0a1a 55%, #062a33 100%);
+  border-bottom: 3px solid var(--pink);
+}
+.eyebrow { color: var(--cyan); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; margin: 0 0 6px; }
+h1 { margin: 0; font-size: 44px; line-height: 1.05; letter-spacing: -1px; }
+.tagline { color: var(--muted); max-width: 720px; margin: 10px 0 0; }
+.progress-wrap { max-width: 720px; margin-top: 20px; }
+.progress-line { display: flex; justify-content: space-between; font-weight: 700; }
+.progress-bar { height: 12px; background: #241b45; border-radius: 8px; overflow: hidden; margin-top: 6px; }
+.progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--pink), var(--cyan)); transition: width .3s; }
+.progress-grades { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+.facts { color: var(--muted); font-size: 13px; margin: 14px 0 0; }
+main { max-width: 980px; margin: 0 auto; padding: 8px 24px 32px; }
+h2 { font-size: 24px; margin: 28px 0 6px; }
+.section-note, .missable-note { color: var(--muted); }
+.steps { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; }
+.steps li { background: var(--panel); border: 1px solid var(--line); border-left: 5px solid var(--pink); border-radius: 10px; padding: 14px 16px; }
+.steps li:nth-child(2) { border-left-color: var(--cyan); }
+.steps li:nth-child(3) { border-left-color: var(--gold); }
+.steps h3 { margin: 0 0 4px; font-size: 17px; }
+.steps p { margin: 4px 0; color: var(--muted); }
+.steps .step-trophies { font-size: 13px; color: var(--ink); }
+.missable-note { background: #2a1218; border: 1px solid #5c1f2a; border-radius: 10px; padding: 12px 14px; color: #ffd7d7; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin: 14px 0 6px; }
+.controls input[type="search"], .controls select {
+  background: var(--panel-2); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 10px; font: inherit;
+}
+.kinds { display: flex; flex-wrap: wrap; gap: 6px; }
+.kinds button {
+  background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 999px; padding: 7px 13px; font: inherit; cursor: pointer;
+}
+.kinds button.active { background: var(--pink); border-color: var(--pink); color: #fff; font-weight: 700; }
+.check { display: flex; gap: 6px; align-items: center; }
+button, .import { cursor: pointer; }
+#export, .import {
+  background: var(--cyan); color: #04222b; border: none; border-radius: 8px;
+  padding: 8px 12px; font: inherit; font-weight: 700;
+}
+.import input { display: none; }
+.count-line { color: var(--muted); font-size: 13px; margin: 4px 0 12px; }
+.list { display: grid; gap: 10px; }
+.card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px 14px; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px;
+}
+.card.earned { border-color: var(--green); }
+.card input[type="checkbox"] { width: 20px; height: 20px; margin-top: 4px; accent-color: var(--green); }
+.card-head { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: baseline; }
+.card-head h3 { margin: 0; font-size: 17px; }
+.grade { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; }
+.grade-platinum { background: var(--gold); color: #241a00; }
+.grade-gold { background: var(--gold); color: #241a00; }
+.grade-silver { background: var(--silver); color: #1c2530; }
+.grade-bronze { background: var(--bronze); color: #241407; }
+.tag { font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; }
+.tag.hidden-tag { color: var(--cyan); border-color: var(--cyan); }
+.tag.missable-tag { color: #fff; background: var(--red); border-color: var(--red); font-weight: 800; }
+.card-desc { color: var(--muted); margin: 0; grid-column: 2; }
+.card-guide { grid-column: 2; margin: 6px 0 0; }
+.card-guide summary { cursor: pointer; color: var(--cyan); font-weight: 700; }
+.card-guide p { margin: 8px 0; }
+.sources { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+.sources a { color: var(--cyan); }
+.spoiler-name { color: var(--muted); font-style: italic; }
+.empty { color: var(--muted); background: var(--panel); border: 1px dashed var(--line); border-radius: 10px; padding: 18px; }
+footer { max-width: 980px; margin: 0 auto; padding: 0 24px 40px; color: var(--muted); }
+footer ul { padding-left: 20px; }
+footer a { color: var(--cyan); }
+.fine { font-size: 13px; }
