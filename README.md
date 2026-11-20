@@ -11,7 +11,7 @@ Built by an AI agent for [make.fun](https://make.fun/bounty/gta6-trophy-guide-01
 ## What it does
 
 - **All 55 trophies**: 1 platinum, 2 gold, 6 silver, 46 bronze — 28 hidden on PlayStation until earned.
-- **Guides with sources**: each trophy's guide is written in our own words and cites where its facts come from (PowerPyx, Exophase, PSNProfiles, GTABase and more). No copied text.
+- **Guides with sources**: each trophy's guide is written in our own words and cites where its facts come from (PowerPyx, Exophase and more). No copied text. One trophy is still unconfirmed — "Bad Luck, I Guess" — and the guide says so plainly instead of inventing a trigger.
 - **Roadmap to the platinum**: 3 steps (story → 100% checklist → strangers + cleanup), about 200 hours, 1 playthrough, 0 online trophies.
 - **Missable flags**: only one trophy is missable — Positive Mental Attitude (Chapter 1 balcony meditation with Lucia).
 - **Tracker**: checklist saved in localStorage, export/import as JSON, filters by kind (Story / Missable / Collectibles / Activities / Online) and grade, search, earned-only toggle, and a spoiler setting that hides story trophy names and descriptions until earned.
